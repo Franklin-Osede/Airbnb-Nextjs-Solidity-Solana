@@ -9,4 +9,14 @@ const WalletConnectionProvider = ({ children }) => {
     const endpoint = useMemo(() => connection, [])
 
     const wallets = useMemo(() => [new PhantomWalletAdapter()], [])
+
+    return (
+        <ConnectionProvider endpoint={endpoint}>
+            <WalletModalProvider wallets={wallets} autoConnect>
+                <WalletModalProvider>{children}</WalletModalProvider>
+            </WalletModalProvider>
+        </ConnectionProvider>
+    )
 }
+
+export default WalletConnectionProvider
