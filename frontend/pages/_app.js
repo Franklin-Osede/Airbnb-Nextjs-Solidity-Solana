@@ -4,7 +4,7 @@ import '../styles/globals.css'
 
 const WalletConnectionProvider = dynamic(() => import('../context/WalletConnectionProvider'), {
     ssr: false,
-})
+});
 
 
 function MyApp({ Component, pageProps }) {
